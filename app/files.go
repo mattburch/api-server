@@ -120,9 +120,9 @@ func (a *App) UploadFile(w http.ResponseWriter, req *http.Request) {
 	binding.MaxMemory = 30000000
 
 	u := &fileRequest{}
-	if errs := binding.Bind(req, u); errs.Handle(w) {
-		return
-	}
+//	if errs := binding.Bind(req, u); errs.Handle(w) {
+//		return
+//	}
 	fh, err := u.File.Open()
 	if err != nil {
 		a.R.JSON(w, http.StatusInternalServerError, &Response{Status: "Error", Message: "Internal server error"})
