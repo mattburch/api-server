@@ -35,10 +35,7 @@ func (f *fileRequest) FieldMap(req *http.Request) binding.FieldMap {
 
 func (f *fileRequest) Validate(req *http.Request, errs binding.Errors) binding.Errors {
 	if f.File == nil {
-		errs = append(errs, binding.Error{
-			Fields: []string{"file"},
-			Message:    "file required",
-		})
+		errs.Add([]string{"file"}, "", "file required")
 	}
 	return errs
 }
